@@ -7,6 +7,8 @@ Booma.GameServerList.Service services gameserver/ship details for the Booma back
 ## Setup
 
 Run BuildAll.bat
+
+
 Run Run.bat
 
 ## Builds
