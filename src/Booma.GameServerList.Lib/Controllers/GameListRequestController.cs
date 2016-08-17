@@ -11,6 +11,7 @@ namespace Booma.GameServerList.Lib
 	/// <summary>
 	/// Controller that handles GladNet <see cref="GameServerListRequestPayload"/>s.
 	/// </summary>
+	[PayloadRoute(typeof(GameServerListRequestPayload))]
 	public class GameListRequestController : RequestController<GameServerListRequestPayload>
 	{
 		/// <summary>
