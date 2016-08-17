@@ -5,7 +5,8 @@
 		"Microsoft.EntityFrameworkCore": "1.0.0",
 		"Booma.Common.ServerSelection": "1.0.0",
 		"GladNet.ASP.Server": "1.0.19",
-		"Booma.Payloads.ServerSelection": "1.0.0"
+		"Booma.Payloads.ServerSelection": "1.0.2",
+		"Booma.Payloads.Common": "1.0.2"
 	},
 
   "frameworks": {

@@ -12,7 +12,7 @@
           "lib/net451/Booma.Common.ServerSelection.dll": {}
         }
       },
-      "Booma.Payloads.Common/1.0.0": {
+      "Booma.Payloads.Common/1.0.2": {
         "type": "package",
         "dependencies": {
           "GladNet.Payload": "2.0.32",
@@ -25,11 +25,11 @@
           "lib/net451/Booma.Payloads.Common.dll": {}
         }
       },
-      "Booma.Payloads.ServerSelection/1.0.0": {
+      "Booma.Payloads.ServerSelection/1.0.2": {
         "type": "package",
         "dependencies": {
           "Booma.Common.ServerSelection": "1.0.0",
-          "Booma.Payloads.Common": "1.0.0",
+          "Booma.Payloads.Common": "1.0.2",
           "GladNet.Payload": "2.0.32",
           "GladNet.Serializer": "2.0.32"
         },
@@ -1387,23 +1387,23 @@
         "lib/net451/Booma.Common.ServerSelection.dll"
       ]
     },
-    "Booma.Payloads.Common/1.0.0": {
-      "sha512": "nI2qRdpc1s5qO5aosrGwjqUhotDzkbttSetVg0dhCIZu2YWmwF7lQo/RM6J6edkwxSHhnrKPQDQxDM41DtHNtA==",
+    "Booma.Payloads.Common/1.0.2": {
+      "sha512": "NQN2F16lA372As9Pt8cEgWgbH7dCiMkGbj0cGWARMGspSDUM/k1MzjlwqDqsZTWhfjnAndsdEoxQwoQMp1vvjQ==",
       "type": "package",
-      "path": "Booma.Payloads.Common/1.0.0",
+      "path": "Booma.Payloads.Common/1.0.2",
       "files": [
-        "Booma.Payloads.Common.1.0.0.nupkg.sha512",
+        "Booma.Payloads.Common.1.0.2.nupkg.sha512",
         "Booma.Payloads.Common.nuspec",
         "lib/net35/Booma.Payloads.Common.dll",
         "lib/net451/Booma.Payloads.Common.dll"
       ]
     },
-    "Booma.Payloads.ServerSelection/1.0.0": {
-      "sha512": "DEE6pEn4uPHk9p+7ce/3WDWiJiriABQnEbB/rD+z/kGw2h8Vqv+CJlZAy8PfIgdkYqEnuGPBmyoyu+eEep/KqA==",
+    "Booma.Payloads.ServerSelection/1.0.2": {
+      "sha512": "f2Qu2Bs1daRzwTBeGpgSmpsGEAfqT8yc0AUHqlq+2T8wbYFqkEYzqaZFG7+QkxKTwkfBdRSevbPoZnfXc2a4Jw==",
       "type": "package",
-      "path": "Booma.Payloads.ServerSelection/1.0.0",
+      "path": "Booma.Payloads.ServerSelection/1.0.2",
       "files": [
-        "Booma.Payloads.ServerSelection.1.0.0.nupkg.sha512",
+        "Booma.Payloads.ServerSelection.1.0.2.nupkg.sha512",
         "Booma.Payloads.ServerSelection.nuspec",
         "lib/net35/Booma.Payloads.ServerSelection.dll",
         "lib/net451/Booma.Payloads.ServerSelection.dll"
@@ -4033,7 +4033,8 @@
   "projectFileDependencyGroups": {
     "": [
       "Booma.Common.ServerSelection >= 1.0.0",
-      "Booma.Payloads.ServerSelection >= 1.0.0",
+      "Booma.Payloads.Common >= 1.0.2",
+      "Booma.Payloads.ServerSelection >= 1.0.2",
       "GladNet.ASP.Server >= 1.0.19",
       "Microsoft.EntityFrameworkCore >= 1.0.0"
     ],
