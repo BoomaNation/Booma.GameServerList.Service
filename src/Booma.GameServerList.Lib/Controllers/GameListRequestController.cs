@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using GladNet.Payload;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using JetBrains.Annotations;
 using Microsoft.Extensions.Logging;
 
 namespace Booma.GameServerList.Lib
@@ -20,14 +21,20 @@ namespace Booma.GameServerList.Lib
 		/// <summary>
 		/// Gameserver details repo.
 		/// </summary>
-		private IGameServerDetailsRepositoryAsync gameserverDetailsRepoService { get;}
+		private IGameServerDetailsRepositoryAsync GameserverDetailsRepoService { get;}
 
-		private ILogger loggingService { get; }
+		/// <summary>
+		/// The logging service.
+		/// </summary>
+		private ILogger LoggingService { get; }
 
-		public GameListRequestController(IGameServerDetailsRepositoryAsync repo, ILogger<GameListRequestController> logger)
+		public GameListRequestController([NotNull] IGameServerDetailsRepositoryAsync repo, [NotNull] ILogger<GameListRequestController> logger)
 		{
-			gameserverDetailsRepoService = repo;
-			loggingService = logger;
+			if (repo == null) throw new ArgumentNullException(nameof(repo));
+			if (logger == null) throw new ArgumentNullException(nameof(logger));
+
+			GameserverDetailsRepoService = repo;
+			LoggingService = logger;
 		}
 
 		/// <summary>
@@ -36,23 +43,26 @@ namespace Booma.GameServerList.Lib
 		/// </summary>
 		/// <param name="payloadInstance"></param>
 		/// <returns>A <see cref="GameServerListResponsePayload"/>.</returns>
-		public override async Task<PacketPayload> HandlePost(GameServerListRequestPayload payloadInstance)
+		public override async Task<PacketPayload> HandlePost([NotNull] GameServerListRequestPayload payloadInstance)
 		{
+			//Shouldn't ever be null though
+			if (payloadInstance == null) throw new ArgumentNullException(nameof(payloadInstance));
+
 			GameServerListResponseCode responseCode = GameServerListResponseCode.Unknown;
 
-			IEnumerable<GameServerDetailsModel> details = await gameserverDetailsRepoService.GetAllPublic();
+			//Force enumerate only once
+			GameServerDetailsModel[] details = (await GameserverDetailsRepoService.GetAllPublic()).ToArray();
 
-			loggingService.LogCritical($"Found: {details.Count()}.");
+			if(LoggingService.IsEnabled(LogLevel.Critical))
+				LoggingService.LogCritical($"Found: {details.Length}.");
 
 			//Check if we have any servers
-			if (details.Count() == 0)
-				responseCode = GameServerListResponseCode.ServiceUnavailable;
-			else
-				responseCode = GameServerListResponseCode.Success;
+			responseCode = !details.Any() ? GameServerListResponseCode.ServiceUnavailable : GameServerListResponseCode.Success;
 
 			SimpleGameServerDetailsModel[] detailsList = details.Select(d => new SimpleGameServerDetailsModel(d.Name, IPAddress.Parse(d.Address), d.ServerPort, d.Region)).ToArray();
 
-			loggingService.LogCritical($"Found: {detailsList.Count()}.");
+			if (LoggingService.IsEnabled(LogLevel.Critical))
+				LoggingService.LogCritical($"Found: {detailsList.Length}.");
 
 			//Build a response payload and map the DB model to the wire-type model.
 			return new GameServerListResponsePayload(responseCode, detailsList);
@@ -61,7 +71,10 @@ namespace Booma.GameServerList.Lib
 		[HttpGet]
 		public async Task<IActionResult> Get()
 		{
-			IEnumerable<GameServerDetailsModel> details = await gameserverDetailsRepoService.GetAllPublic();
+			IEnumerable<GameServerDetailsModel> details = await GameserverDetailsRepoService.GetAllPublic();
+
+			if(details == null)
+				throw new InvalidOperationException($"Queried {nameof(IEnumerable<GameServerDetailsModel>)} is null. Failed to load from {nameof(GameserverDetailsRepoService)} repo.");
 
 			return new JsonResult(details);
 		}
