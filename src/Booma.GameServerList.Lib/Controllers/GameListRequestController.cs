@@ -21,7 +21,7 @@ namespace Booma.GameServerList.Lib
 		/// <summary>
 		/// Gameserver details repo.
 		/// </summary>
-		private IGameServerDetailsRepositoryAsync GameserverDetailsRepoService { get;}
+		private IGameServerDetailsRepositoryAsync GameserverDetailsRepoService { get; }
 
 		/// <summary>
 		/// The logging service.

@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace Booma.GameServerList.Lib
 {
+	//TODO: Document
 	/// <summary>
 	/// Flags indicating the server type.
 	/// </summary>
+	[Flags]
 	public enum ServerStatus : int
 	{
 		Offline = 1 << 0,

@@ -11,22 +11,25 @@ namespace Booma.GameServerList.Lib
 	/// <summary>
 	/// Context for the gameserver list.
 	/// </summary>
-	public class GameServerListDbContext : DbContext
+	public sealed class GameServerListDbContext : DbContext
 	{
 		/// <summary>
 		/// The available gameservers.
 		/// </summary>
-		public DbSet<GameServerDetailsModel> GameServers { get; private set; }
+		public DbSet<GameServerDetailsModel> GameServers { get; private set; } //do not remove setter; ASP needs it
 
 		public GameServerListDbContext(DbContextOptions options) 
 			: base(options)
 		{
+			if(GameServers == null)
+				throw new InvalidOperationException($"Internally managed {nameof(GameServers)} {nameof(DbSet<GameServerDetailsModel>)} is null. ASP should have initialized it.");
+
 			//Uncomment for test
-			if (GameServers.Count() < 1)
+			if (!GameServers.Any())
 			{
 				GameServers.Add(new GameServerDetailsModel() { Address = IPAddress.Any.ToString(), Name = "Test", Region = Common.ServerSelection.ServerRegion.CN, ServerPort = 55, Status = ServerStatus.Online | ServerStatus.Public });
 				SaveChanges();
-			}				
+			}
 		}
 	}
 }

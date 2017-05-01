@@ -27,6 +27,9 @@ namespace Booma.GameServerList.Module
 			//Grab a serializer registry to registr payloads.
 			ISerializerRegistry registry = serviceCollection.BuildServiceProvider().GetService<ISerializerRegistry>();
 
+			if(registry == null)
+				throw new InvalidOperationException($"Tried to build {nameof(ISerializerRegistry)} from {nameof(serviceCollection)} but returned null.");
+
 			//Register the data context
 			serviceCollection.AddDbContext<GameServerListDbContext>(DbOptions);
 
