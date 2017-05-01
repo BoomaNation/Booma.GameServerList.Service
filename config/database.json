@@ -1,0 +1,6 @@
+﻿{
+	"DatabaseConfigOptions": {
+		"useInMemoryDatabase": true,
+		"DatabaseConnectionString": ""
+	}
+}

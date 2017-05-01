@@ -49,6 +49,19 @@
           "lib/net35/Easyception.dll": {}
         }
       },
+      "GladLive.Module.System.Library/1.0.15": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/GladLive.Module.System.Library.dll": {}
+        },
+        "runtime": {
+          "lib/net451/GladLive.Module.System.Library.dll": {}
+        }
+      },
       "GladNet.ASP.Formatters/1.0.19": {
         "type": "package",
         "dependencies": {
@@ -1533,6 +1546,26 @@
         "runtime": {
           "lib/net45/_._": {}
         }
+      },
+      "Booma.GameServerList.Lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Booma.Common.ServerSelection": "1.0.0",
+          "Booma.Payloads.Common": "1.0.6",
+          "Booma.Payloads.ServerSelection": "1.0.6",
+          "GladNet.ASP.Server": "1.0.19",
+          "Microsoft.AspNetCore.Hosting": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Design": "1.0.0-preview2-final",
+          "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0"
+        },
+        "compile": {
+          "net451/Booma.GameServerList.Lib.dll": {}
+        },
+        "runtime": {
+          "net451/Booma.GameServerList.Lib.dll": {}
+        }
       }
     }
   },
@@ -1578,6 +1611,25 @@
         "Easyception.2.0.0.nupkg.sha512",
         "Easyception.nuspec",
         "lib/net35/Easyception.dll"
+      ]
+    },
+    "GladLive.Module.System.Library/1.0.15": {
+      "sha512": "ZnFYM5dRxIKjiWiMyRk12dHU+n0ktUKZBDL1qxBSYM9a50fXiP3dlj+Gp02ySSKdAyqv9TAuRUum4gfxuG5Ftw==",
+      "type": "package",
+      "path": "GladLive.Module.System.Library/1.0.15",
+      "files": [
+        "GladLive.Module.System.Library.1.0.15.nupkg.sha512",
+        "GladLive.Module.System.Library.nuspec",
+        "lib/net451/GladLive.Module.System.Library.dll",
+        "lib/net451/GladLive.Module.System.Library.xml",
+        "lib/net452/GladLive.Module.System.Library.dll",
+        "lib/net452/GladLive.Module.System.Library.xml",
+        "lib/net46/GladLive.Module.System.Library.dll",
+        "lib/net46/GladLive.Module.System.Library.xml",
+        "lib/net461/GladLive.Module.System.Library.dll",
+        "lib/net461/GladLive.Module.System.Library.xml",
+        "lib/netstandard1.6/GladLive.Module.System.Library.dll",
+        "lib/netstandard1.6/GladLive.Module.System.Library.xml"
       ]
     },
     "GladNet.ASP.Formatters/1.0.19": {
@@ -4339,45 +4391,20 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "Booma.GameServerList.Lib/1.0.0": {
+      "type": "project",
+      "path": "../Booma.GameServerList.Lib/project.json",
+      "msbuildProject": "../Booma.GameServerList.Lib/Booma.GameServerList.Lib.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "Booma.Common.ServerSelection >= 1.0.0",
-      "Booma.Payloads.Common >= 1.0.6",
-      "Booma.Payloads.ServerSelection >= 1.0.6",
-      "GladNet.ASP.Server >= 1.0.19",
-      "Microsoft.AspNetCore.Hosting >= 1.0.0",
-      "Microsoft.EntityFrameworkCore >= 1.0.0",
-      "Microsoft.EntityFrameworkCore.Design >= 1.0.0-preview2-final",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 1.0.0"
+      "Booma.GameServerList.Lib >= 1.0.0-*",
+      "GladLive.Module.System.Library >= 1.0.15"
     ],
     ".NETFramework,Version=v4.5.1": []
   },
-  "tools": {
-    ".NETCoreApp,Version=v1.0": {
-      "Microsoft.EntityFrameworkCore.Tools/1.0.0-preview2-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.DotNet.Cli.Utils": "1.0.0-preview2-003121",
-          "Microsoft.DotNet.ProjectModel": "1.0.0-rc3-003121",
-          "Microsoft.EntityFrameworkCore.Design": "1.0.0-preview2-final",
-          "Microsoft.Extensions.CommandLineUtils": "1.0.0",
-          "Microsoft.NETCore.App": "1.0.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
-        },
-        "compile": {
-          "lib/netcoreapp1.0/dotnet-ef.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp1.0/dotnet-ef.dll": {}
-        }
-      }
-    }
-  },
-  "projectFileToolGroups": {
-    ".NETCoreApp,Version=v1.0": [
-      "Microsoft.EntityFrameworkCore.Tools >= 1.0.0-preview2-final"
-    ]
-  }
+  "tools": {},
+  "projectFileToolGroups": {}
 }

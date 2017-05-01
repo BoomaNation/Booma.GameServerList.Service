@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using System.Net;
 
 namespace Booma.GameServerList.Lib
 {
@@ -20,7 +21,12 @@ namespace Booma.GameServerList.Lib
 		public GameServerListDbContext(DbContextOptions options) 
 			: base(options)
 		{
-
+			//Uncomment for test
+			if (GameServers.Count() < 1)
+			{
+				GameServers.Add(new GameServerDetailsModel() { Address = IPAddress.Any.ToString(), Name = "Test", Region = Common.ServerSelection.ServerRegion.CN, ServerPort = 55, Status = ServerStatus.Online | ServerStatus.Public });
+				SaveChanges();
+			}				
 		}
 	}
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -14,17 +15,14 @@ namespace Booma.GameServerList.Lib
 	public class GameServerDetailsModel
 	{
 		[Key]
-		public int GameServerId { get; }
+		public int GameServerId { get; private set; }
 
 		/// <summary>
 		/// Name of the server (Ex. Vegas)
 		/// </summary>
 		public string Name { get; set; }
 
-		/// <summary>
-		/// Remote IP of the server.
-		/// </summary>
-		public IPAddress Address { get; set; }
+		public string Address { get; set; }
 
 		/// <summary>
 		/// Port incoming client connections should be on.

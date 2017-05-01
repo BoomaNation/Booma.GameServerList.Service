@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GladNet.Payload;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using Microsoft.Extensions.Logging;
 
 namespace Booma.GameServerList.Lib
 {
@@ -19,9 +22,12 @@ namespace Booma.GameServerList.Lib
 		/// </summary>
 		private IGameServerDetailsRepositoryAsync gameserverDetailsRepoService { get;}
 
-		public GameListRequestController(IGameServerDetailsRepositoryAsync repo)
+		private ILogger loggingService { get; }
+
+		public GameListRequestController(IGameServerDetailsRepositoryAsync repo, ILogger<GameListRequestController> logger)
 		{
 			gameserverDetailsRepoService = repo;
+			loggingService = logger;
 		}
 
 		/// <summary>
@@ -36,14 +42,28 @@ namespace Booma.GameServerList.Lib
 
 			IEnumerable<GameServerDetailsModel> details = await gameserverDetailsRepoService.GetAllPublic();
 
+			loggingService.LogCritical($"Found: {details.Count()}.");
+
 			//Check if we have any servers
 			if (details.Count() == 0)
 				responseCode = GameServerListResponseCode.ServiceUnavailable;
 			else
 				responseCode = GameServerListResponseCode.Success;
 
+			SimpleGameServerDetailsModel[] detailsList = details.Select(d => new SimpleGameServerDetailsModel(d.Name, IPAddress.Parse(d.Address), d.ServerPort, d.Region)).ToArray();
+
+			loggingService.LogCritical($"Found: {detailsList.Count()}.");
+
 			//Build a response payload and map the DB model to the wire-type model.
-			return new GameServerListResponsePayload(responseCode, details.Select(d => new SimpleGameServerDetailsModel(d.Name, d.Address, d.ServerPort, d.Region)));
+			return new GameServerListResponsePayload(responseCode, detailsList);
+		}
+
+		[HttpGet]
+		public async Task<IActionResult> Get()
+		{
+			IEnumerable<GameServerDetailsModel> details = await gameserverDetailsRepoService.GetAllPublic();
+
+			return new JsonResult(details);
 		}
 	}
 }
