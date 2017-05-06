@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{88C88297-7ED6-477F-9532-A35B500BBA15}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Booma.GameServerList.Lib", "src\Booma.GameServerList.Lib\Booma.GameServerList.Lib.xproj", "{7973EA38-B9EC-4EEB-AB2A-60F3F2385160}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Booma.GameServerList.Lib", "src\Booma.GameServerList.Lib\Booma.GameServerList.Lib.csproj", "{7973EA38-B9EC-4EEB-AB2A-60F3F2385160}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Booma.GameServerList.Module", "src\Booma.GameServerList.Module\Booma.GameServerList.Module.xproj", "{F0D5D2FD-796C-4367-983F-69666DF7EAC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Booma.GameServerList.Module", "src\Booma.GameServerList.Module\Booma.GameServerList.Module.csproj", "{F0D5D2FD-796C-4367-983F-69666DF7EAC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

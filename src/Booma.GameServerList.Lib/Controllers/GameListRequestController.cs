@@ -43,7 +43,8 @@ namespace Booma.GameServerList.Lib
 		/// </summary>
 		/// <param name="payloadInstance"></param>
 		/// <returns>A <see cref="GameServerListResponsePayload"/>.</returns>
-		public override async Task<PacketPayload> HandlePost([NotNull] GameServerListRequestPayload payloadInstance)
+		
+		protected override async Task<PacketPayload> HandlePost([NotNull] GameServerListRequestPayload payloadInstance)
 		{
 			//Shouldn't ever be null though
 			if (payloadInstance == null) throw new ArgumentNullException(nameof(payloadInstance));
