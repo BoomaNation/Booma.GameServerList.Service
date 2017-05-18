@@ -1,6 +1,6 @@
 ﻿{
 	"DatabaseConfigOptions": {
-		"useInMemoryDatabase": true,
-		"DatabaseConnectionString": ""
+		"useInMemoryDatabase": false,
+		"DatabaseConnectionString": "Server=localhost;Database=boomashiplist;Uid=root;Pwd=test;"
 	}
 }

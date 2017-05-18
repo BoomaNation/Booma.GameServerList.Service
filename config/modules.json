@@ -1,6 +1,6 @@
 ﻿{
 	"ModuleSystemOptions": {
 		"ApplicationConfigurationModulesPaths": [ ],
-		"ServiceRegistrationModulesPaths": [ "Booma.GameServerList.Module" ]
+		"ServiceRegistrationModulesPaths": [ "Booma.GameServerListService.Module" ]
 	}
 }
