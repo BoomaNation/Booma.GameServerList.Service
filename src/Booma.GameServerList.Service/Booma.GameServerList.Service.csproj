@@ -30,11 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Booma.GameServerListService.Library, Version=1.0.35.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Booma.GameServerListService.Library.1.0.35\lib\net451\Booma.GameServerListService.Library.dll</HintPath>
+    <Reference Include="Booma.GameServerListService.Library, Version=1.0.45.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Booma.GameServerListService.Library.1.0.45\lib\net451\Booma.GameServerListService.Library.dll</HintPath>
     </Reference>
-    <Reference Include="Booma.GameServerListService.Module, Version=1.0.35.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Booma.GameServerListService.Module.1.0.35\lib\net451\Booma.GameServerListService.Module.dll</HintPath>
+    <Reference Include="Booma.GameServerListService.Module, Version=1.0.45.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Booma.GameServerListService.Module.1.0.45\lib\net451\Booma.GameServerListService.Module.dll</HintPath>
+    </Reference>
+    <Reference Include="Booma.Payloads.Common, Version=1.0.45.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Booma.Payloads.Common.1.0.45\lib\net35\Booma.Payloads.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Booma.Payloads.ServerSelection, Version=1.0.45.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Booma.Payloads.ServerSelection.1.0.45\lib\net35\Booma.Payloads.ServerSelection.dll</HintPath>
+    </Reference>
+    <Reference Include="Booma.ServerSelection.Common, Version=1.0.45.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Booma.ServerSelection.Common.1.0.45\lib\net35\Booma.ServerSelection.Common.dll</HintPath>
     </Reference>
     <Reference Include="Easyception, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Easyception.2.0.0\lib\net35\Easyception.dll</HintPath>
@@ -251,6 +260,9 @@
     </Reference>
     <Reference Include="Microsoft.Net.Http.Headers, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Net.Http.Headers.1.1.1\lib\netstandard1.1\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Net35Essentials, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Net35Essentials.1.0.3\lib\net35\Net35Essentials.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
